@@ -33,7 +33,7 @@ dependencies {
 
 ## 使用
 ##### Step 1.
-创建Bean模型
+创建Bean模型,将你的API接口请求的结果用GsonFormat转换成JavaBean。[GsonFormat快速生成JSon实体类](http://www.cnblogs.com/1024zy/p/6370305.html "GsonFormat快速生成JSon实体类")
 <hr>
 
 GankBean.class
