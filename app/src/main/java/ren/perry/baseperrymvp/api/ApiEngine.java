@@ -38,5 +38,4 @@ public class ApiEngine {
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build().create(ApiService.class);
     }
-
 }
