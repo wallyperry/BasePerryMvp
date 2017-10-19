@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide;
 
 import butterknife.Bind;
 import butterknife.OnClick;
+import ren.perry.baseperrymvp.R;
 import ren.perry.baseperrymvp.bean.GankBean;
 import ren.perry.baseperrymvp.mvp.contract.MainContract;
 import ren.perry.baseperrymvp.mvp.presenter.MainPresenter;
