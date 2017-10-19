@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BaseMvpFrame</string>
+    <string name="get_data">获取数据</string>
+</resources>
