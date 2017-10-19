@@ -31,7 +31,7 @@ dependencies {
 }
 ```
 
-## 使用
+## 使用方法
 Demo目录结构
 ##### ![](http://perry.ren/apk/BasePerryMvp.png )
 ##### Step 1.
