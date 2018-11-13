@@ -10,9 +10,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
-        classpath 'me.tatarka:gradle-retrolambda:3.2.4'
+        classpath 'com.android.tools.build:gradle:3.0.0'
     }
 }
 
@@ -27,8 +25,38 @@ allprojects {
 在需要使用到的Module中添加以下依赖
 ```xml
 dependencies {
-    compile 'com.github.weipeilong123:BasePerryMvp:1.0.0'
+    compile 'com.github.weipeilong123:BasePerryMvp:1.0.1'
 }
+```
+
+## 注意
+库中已有的依赖如下
+```xml
+    compile 'org.projectlombok:lombok:1.16.8'
+    compile 'javax.annotation:javax.annotation-api:1.2'
+    compile 'com.android.support:appcompat-v7:28.0.0'
+    compile 'com.android.support:support-v13:28.0.0'
+    compile 'com.android.support:cardview-v7:28.0.0'
+    compile 'com.android.support:design:28.0.0'
+    compile 'com.android.support:recyclerview-v7:28.0.0'
+    compile 'com.google.code.gson:gson:2.8.2'
+    compile 'com.squareup.okio:okio:1.14.0'
+    compile 'com.squareup.okhttp3:okhttp:3.10.0'
+    compile 'io.reactivex:rxjava:1.2.4'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.retrofit2:converter-scalars:2.1.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.2'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'jp.wasabeef:glide-transformations:2.0.2'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.alibaba:fastjson:1.2.36'
+    compile 'com.afollestad.material-dialogs:core:0.9.4.5'
+    compile 'org.apache.commons:commons-lang3:3.5'
 ```
 
 ## 使用方法
