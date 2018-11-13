@@ -1,16 +1,20 @@
 apply plugin: 'com.android.library'
-apply plugin: 'me.tatarka.retrolambda'
-apply plugin: 'android-apt'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        targetSdkVersion 28
+        versionCode 2
+        versionName "1.0.1"
+        javaCompileOptions {
+            // 显式声明支持注解
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
     }
     buildTypes {
         release {
@@ -26,11 +30,17 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
-    compile 'com.google.code.gson:gson:2.7'
-    compile 'com.squareup.okio:okio:1.7.0'
-    compile 'com.squareup.okhttp3:okhttp:3.4.2'
-    compile 'io.reactivex:rxjava:1.1.6'
+    compile 'org.projectlombok:lombok:1.16.8'
+    compile 'javax.annotation:javax.annotation-api:1.2'
+    compile 'com.android.support:appcompat-v7:28.0.0'
+    compile 'com.android.support:support-v13:28.0.0'
+    compile 'com.android.support:cardview-v7:28.0.0'
+    compile 'com.android.support:design:28.0.0'
+    compile 'com.android.support:recyclerview-v7:28.0.0'
+    compile 'com.google.code.gson:gson:2.8.2'
+    compile 'com.squareup.okio:okio:1.14.0'
+    compile 'com.squareup.okhttp3:okhttp:3.10.0'
+    compile 'io.reactivex:rxjava:1.2.4'
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
@@ -38,4 +48,11 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-scalars:2.1.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.2'
     compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'jp.wasabeef:glide-transformations:2.0.2'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.alibaba:fastjson:1.2.36'
+    compile 'com.afollestad.material-dialogs:core:0.9.4.5'
+    compile 'org.apache.commons:commons-lang3:3.5'
 }
