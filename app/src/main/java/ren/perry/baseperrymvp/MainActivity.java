@@ -4,14 +4,14 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.OnClick;
 import ren.perry.baseperrymvp.bean.GankBean;
 import ren.perry.baseperrymvp.mvp.contract.MainContract;
 import ren.perry.baseperrymvp.mvp.presenter.MainPresenter;
 import ren.perry.mvplibrary.base.BaseActivity;
 import ren.perry.mvplibrary.net.ApiException;
-import ren.perry.mvplibrary.untils.GlideMan;
+import ren.perry.mvplibrary.utils.GlideMan;
 
 /**
  * MainActivity
@@ -20,7 +20,7 @@ import ren.perry.mvplibrary.untils.GlideMan;
  */
 public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View {
 
-    @Bind(R.id.iv)
+    @BindView(R.id.iv)
     ImageView iv;
 
     @Override

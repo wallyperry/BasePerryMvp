@@ -1,4 +1,4 @@
-package ren.perry.mvplibrary.untils;
+package ren.perry.mvplibrary.utils;
 
 import android.content.Context;
 import android.widget.ImageView;

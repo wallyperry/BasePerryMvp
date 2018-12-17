@@ -10,7 +10,8 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0'
+        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.jakewharton:butterknife-gradle-plugin:9.0.0-rc2'
     }
 }
 
@@ -24,40 +25,45 @@ allprojects {
 ##### Step 2.
 在需要使用到的Module中添加以下依赖
 ```xml
+apply plugin: 'com.jakewharton.butterknife'
+
 dependencies {
-    compile 'com.github.weipeilong123:BasePerryMvp:1.0.1'
+    implementation 'com.github.weipeilong123:BasePerryMvp:1.0.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc2'
 }
 ```
 
 ## 注意
 库中已有的依赖如下
 ```xml
-    compile 'org.projectlombok:lombok:1.16.8'
-    compile 'javax.annotation:javax.annotation-api:1.2'
-    compile 'com.android.support:appcompat-v7:28.0.0'
-    compile 'com.android.support:support-v13:28.0.0'
-    compile 'com.android.support:cardview-v7:28.0.0'
-    compile 'com.android.support:design:28.0.0'
-    compile 'com.android.support:recyclerview-v7:28.0.0'
-    compile 'com.google.code.gson:gson:2.8.2'
-    compile 'com.squareup.okio:okio:1.14.0'
-    compile 'com.squareup.okhttp3:okhttp:3.10.0'
-    compile 'io.reactivex:rxjava:1.2.4'
-    compile 'io.reactivex:rxandroid:1.2.1'
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
-    compile 'com.squareup.retrofit2:converter-scalars:2.1.0'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.4.2'
-    compile 'com.jakewharton:butterknife:7.0.1'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'jp.wasabeef:glide-transformations:2.0.2'
-    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
-    compile 'org.greenrobot:eventbus:3.0.0'
-    compile 'com.alibaba:fastjson:1.2.36'
-    compile 'com.afollestad.material-dialogs:core:0.9.4.5'
-    compile 'org.apache.commons:commons-lang3:3.5'
+    api 'com.jakewharton:butterknife:9.0.0-rc2'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc2'
+    api 'org.projectlombok:lombok:1.16.18'
+    api 'javax.annotation:javax.annotation-api:1.2'
+    api 'com.android.support:appcompat-v7:28.0.0'
+    api 'com.android.support:support-v13:28.0.0'
+    api 'com.android.support:cardview-v7:28.0.0'
+    api 'com.android.support:design:28.0.0'
+    api 'com.android.support:recyclerview-v7:28.0.0'
+    api 'com.google.code.gson:gson:2.8.2'
+    api 'com.squareup.okio:okio:1.14.0'
+    api 'com.squareup.okhttp3:okhttp:3.10.0'
+    api 'io.reactivex:rxjava:1.2.4'
+    api 'io.reactivex:rxandroid:1.2.1'
+    api 'com.squareup.retrofit2:retrofit:2.1.0'
+    api 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    api 'com.squareup.retrofit2:converter-gson:2.1.0'
+    api 'com.squareup.retrofit2:converter-scalars:2.1.0'
+    api 'com.squareup.okhttp3:logging-interceptor:3.4.2'
+    api 'com.github.bumptech.glide:glide:3.7.0'
+    api 'jp.wasabeef:glide-transformations:2.0.2'
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
+    api 'org.greenrobot:eventbus:3.0.0'
+    api 'com.alibaba:fastjson:1.2.36'
+    api 'com.afollestad.material-dialogs:core:0.9.4.5'
+    api 'org.apache.commons:commons-lang3:3.5'
 ```
+另外，library中util包下的GlideMan是加载图片的二次封装，可用来加载圆形、圆角图片等等。
 
 ## 使用方法
 Demo目录结构

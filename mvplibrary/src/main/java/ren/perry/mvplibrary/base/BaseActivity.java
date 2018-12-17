@@ -59,8 +59,8 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
             mPresenter = onCreatePresenter();
         }
         setContentView(initLayoutId());
-        context = this;
         ButterKnife.bind(this);
+        context = this;
         initStatusBar();
         initView();
     }
@@ -71,7 +71,6 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         if (mPresenter != null) {
             mPresenter.unSubscribe();
         }
-        ButterKnife.unbind(this);
     }
 
     protected void toastShow(String s) {

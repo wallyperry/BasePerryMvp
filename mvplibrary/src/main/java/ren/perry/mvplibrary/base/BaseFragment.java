@@ -2,6 +2,7 @@ package ren.perry.mvplibrary.base;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * BaseFragment
@@ -21,6 +23,8 @@ import butterknife.ButterKnife;
 
 @SuppressWarnings("unused")
 public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
+
+    private Unbinder unbinder;
 
     protected P mPresenter;
 
@@ -90,9 +94,9 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(setLayoutResourceId(), container, false);
-        ButterKnife.bind(this, rootView);
+        unbinder = ButterKnife.bind(this, rootView);
         if (onCreatePresenter() != null) {
             mPresenter = onCreatePresenter();
         }
@@ -102,7 +106,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
         return rootView;
     }
 
-    protected void toastshow(String s) {
+    protected void toast(String s) {
         if (toast != null) {
             toast.cancel();
             toast = null;
@@ -134,7 +138,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment {
         if (mPresenter != null) {
             mPresenter.unSubscribe();
         }
-        ButterKnife.unbind(this);
+        unbinder.unbind();
     }
 
     @Override
