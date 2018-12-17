@@ -28,7 +28,7 @@ allprojects {
 apply plugin: 'com.jakewharton.butterknife'
 
 dependencies {
-    implementation 'com.github.weipeilong123:BasePerryMvp:1.0.1'
+    implementation 'com.github.weipeilong123:BasePerryMvp:1.0.2'
     annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc2'
 }
 ```
