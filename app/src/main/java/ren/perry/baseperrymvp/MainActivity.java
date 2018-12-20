@@ -1,8 +1,8 @@
 package ren.perry.baseperrymvp;
 
-import android.util.Log;
-import android.widget.ImageView;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -11,7 +11,7 @@ import ren.perry.baseperrymvp.mvp.contract.MainContract;
 import ren.perry.baseperrymvp.mvp.presenter.MainPresenter;
 import ren.perry.mvplibrary.base.BaseActivity;
 import ren.perry.mvplibrary.net.ApiException;
-import ren.perry.mvplibrary.utils.GlideMan;
+import ren.perry.mvplibrary.utils.SpUtils;
 
 /**
  * MainActivity
@@ -20,8 +20,15 @@ import ren.perry.mvplibrary.utils.GlideMan;
  */
 public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View {
 
-    @BindView(R.id.iv)
-    ImageView iv;
+    @BindView(R.id.tv1)
+    TextView tv1;
+    @BindView(R.id.et1)
+    EditText et1;
+    @BindView(R.id.tvSpData)
+    TextView tvSpData;
+
+    private final String sp_key = "test";
+    private SpUtils spUtils;
 
     @Override
     protected int initLayoutId() {
@@ -30,6 +37,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     @Override
     protected void initView() {
+        spUtils = new SpUtils(this, "sp_test");
 
     }
 
@@ -40,18 +48,28 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     @Override
     public void onSuccess(GankBean bean) {
-        Log.e("MainActivity", "获取到数据：" + bean.getResults().size() + "条数据");
-        new GlideMan.Builder().load(bean.getResults().get(0).getUrl()).loadingRes(R.mipmap.ic_launcher).loadFailRes(R.mipmap.ic_launcher).into(iv);
+        String result = "获取到数据：" + bean.getResults().size() + "条数据";
+        tv1.setText(result);
     }
 
     @Override
     public void onError(ApiException.ResponseException e) {
-        Log.e("MainActivity", "获取数据失败：" + e.code + "," + e.message);
-        Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show();
+        String result = "获取数据失败：" + e.code + "," + e.message;
+        tv1.setText(result);
     }
 
-    @OnClick(R.id.btn)
-    public void onViewClicked() {
-        mPresenter.getGankData("福利", 1);
+    @OnClick({R.id.btnGetData, R.id.btnSpSave, R.id.btnSpGet})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.btnGetData:
+                mPresenter.getGankData("Android", 1);
+                break;
+            case R.id.btnSpSave:
+                spUtils.putString(sp_key, et1.getText().toString());
+                break;
+            case R.id.btnSpGet:
+                tvSpData.setText(spUtils.getString(sp_key, ""));
+                break;
+        }
     }
 }
